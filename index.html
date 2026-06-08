@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VanillaGarma | Самый уютный сервер</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Живой фон (видео майнкрафта в биоме сакуры) -->
+    <video autoplay muted loop id="bg-video">
+        <source src="sakura.mp4" type="video/mp4">
+    </video>
+
+    <!-- Шапка с логотипом и вкладками -->
+    <header class="glass-panel">
+        <div class="logo">
+            <span class="icon">🌸</span> VANILLAGARMA
+        </div>
+        <nav class="tabs-nav">
+            <button class="tab-btn active" onclick="openTab(event, 'main-page')">Главная</button>
+            <button class="tab-btn" onclick="openTab(event, 'rules-page')">Правила</button>
+            <button class="tab-btn" onclick="openTab(event, 'links-page')">Ссылки</button>
+            <button class="tab-btn" onclick="openTab(event, 'wiki-page')">Отыгрыш (RP)</button>
+        </nav>
+    </header>
+
+    <!-- Основной контент сайта -->
+    <main class="content-container">
+
+        <!-- ВКЛАДКА 1: ГЛАВНАЯ -->
+        <div id="main-page" class="tab-content active-content">
+            <div class="hero-layout">
+                <section class="glass-panel info-card">
+                    <h1>VANILLAGARMA</h1>
+                    <p class="subtitle">Уютный мир под лепестками сакуры. Ванильное выживание с душой и крутым комьюнити.</p>
+                    <div class="server-status">
+                        <span class="status-indicator"></span>
+                        <p>Онлайн: <strong>196 из 200</strong></p>
+                    </div>
+                    <div class="ip-block">
+                        <p>IP адрес для входа:</p>
+                        <div class="ip-address">play.vanillagarma.online</div>
+                    </div>
+                </section>
+
+                <section class="glass-panel mechanics-card">
+                    <h2>Особенности проекта</h2>
+                    <div class="mechanic-item">
+                        <h3>🔒 Удобная проходка</h3>
+                        <p>Полная защита от гриферов. Быстрая подача заявки и добавление в белый список через нашего Telegram-бота.</p>
+                    </div>
+                    <div class="mechanic-item">
+                        <h3>🌸 Настоящая атмосфера</h3>
+                        <p>Доступные версии игры: <strong>1.21.4 – 1.21.11</strong>. Красивый спавн, отзывчивая администрация и ламповая игра.</p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- БЛОК: С ЧЕГО НАЧАТЬ -->
+            <div class="extended-layout">
+                <section class="glass-panel full-width-card style-guide">
+                    <h2>🚀 Как начать игру на сервере?</h2>
+                    <p class="subtitle">Всего 3 простых шага отделяют тебя от погружения в наш ламповый мир.</p>
+                    
+                    <div class="steps-container">
+                        <div class="step-card">
+                            <div class="step-num">1</div>
+                            <h3>Подай заявку в бота</h3>
+                            <p>Перейди в нашего официального <a href="https://t.me/VanillaGarmaAut_bot" target="_blank" style="color: #ffb6c1; font-weight: 600; text-decoration: underline;">Telegram-бота</a> и заполни короткую анкету (заявку) на вход.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-num">2</div>
+                            <h3>Дождись одобрения</h3>
+                            <p>Администрация быстро проверит твою анкету, после чего бот автоматически добавит твой ник в белый список.</p>
+                        </div>
+                        <div class="step-card">
+                            <div class="step-num">3</div>
+                            <h3>Подключайся к игре!</h3>
+                            <p>Скопируй наш IP адрес, запускай любую версию Minecraft <strong>от 1.21.4 до 1.21.11</strong> и заходи играть!</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+
+        <!-- ВКЛАДКА 2: ПРАВИЛА -->
+        <div id="rules-page" class="tab-content">
+            <section class="glass-panel full-width-card">
+                <h2>📜 Правила сервера VanillaGarma</h2>
+                <p class="subtitle">Соблюдение этих правил делает игру комфортной и безопасной для каждого участника.</p>
+
+                <div class="rules-accordion">
+                    
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">1️⃣ Общие положения <span>+</span></button>
+                        <div class="accordion-body">
+                            <p><strong>1.1.</strong> Играя на сервере, вы автоматически соглашаетесь со всеми правилами.</p>
+                            <p><strong>1.2.</strong> Незнание правил не освобождает от ответственности.</p>
+                            <p><strong>1.3.</strong> Администрация имеет право наказывать игроков на своё усмотрение в рамках здравого смысла.</p>
+                            <p><strong>1.4.</strong> Правила могут изменяться без предварительного уведомления.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">2️⃣ Аккаунт и никнейм <span>+</span></button>
+                        <div class="accordion-body">
+                            <p><strong>2.1.</strong> Запрещены: оскорбительные, политические, расистские, нацистские ники, ники, копирующие администрацию.</p>
+                            <p><strong>2.2.</strong> Ответственность за безопасность аккаунта лежит на игроке.</p>
+                            <p><strong>2.3.</strong> Не разрешается создавать много аккаунтов (максимум 2 аккаунта).</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">3️⃣ Чат и общение <span>+</span></button>
+                        <div class="accordion-body">
+                            <p><strong>3.1.</strong> Запрещено: оскорбления, унижения, травля, расизм, нацизм, экстремизм, угрозы, спам, флуд, капс.</p>
+                            <p><strong>3.2.</strong> Реклама сторонних ресурсов — <em>мут до 1 дня</em>.</p>
+                            <p><strong>3.3.</strong> Мат не приветствуется — <em>мут до 5 часов</em>.</p>
+                            <p><strong>3.4.</strong> Провокации и разжигание конфликтов — <em>мут до 30 минут</em>.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">4️⃣ Игровой процесс и софт <span>+</span></button>
+                        <div class="accordion-body">
+                            <p><strong>4.1.</strong> Использование читов, X-Ray, Freecam (свободная камера) и любых хаков — <strong class="danger-text">бан навсегда</strong>.</p>
+                            <p><strong>4.2.</strong> Использование багов сервера для преимущества — <em>бан до 30 дней</em>.</p>
+                            <p><strong>4.3.</strong> Дюпы, лаг-машины и намеренная нагрузка сервера — <strong class="danger-text">бан по IP навсегда</strong>.</p>
+                            <p><strong>4.4.</strong> Запрещено использование авто-кликеров для фарм-зон — <em>бан до 3 дней</em>.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">5️⃣ Постройки и Гриферство <span>+</span></button>
+                        <div class="accordion-body">
+                            <p><strong>5.1.</strong> Запрещено строить базы и частные постройки ближе чем в 300 блоках от нулевых координат (спавна). Территория спавна предназначена для общественных объектов. Постройки нарушителей могут быть перенесены или удалены.</p>
+                            <p><strong>5.2.</strong> Гриферство, воровство ресурсов и разрушение чужих построек — <em>бан до 30 дней</em>.</p>
+                            <p><strong>5.3.</strong> Постройки с неприличным или оскорбительным содержанием будут удалены без возврата ресурсов.</p>
+                            <p><strong>5.4.</strong> Запрещено оставлять «столбы» из блоков и недорубленные деревья (висящая листва) — <em>кик/тюрьма</em>.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">6️⃣ PvP и взаимодействие <span>+</span></button>
+                        <div class="accordion-body">
+                            <p><strong>6.1.</strong> PvP разрешено только в Энде (на дальних островах). Нарушение — <em>бан до 2 дней</em>.</p>
+                            <p><strong>6.2.</strong> Запрещен обман при обмене (скам) — <em>бан до 1 дня</em>.</p>
+                            <p><strong>6.3.</strong> Запрещено убийство домашних животных/скота других игроков — <em>бан до 1 дня</em>.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">7️⃣ Администрация <span>+</span></button>
+                        <div class="accordion-body">
+                            <p><strong>7.1.</strong> Запрещено мешать работе администрации или выдавать себя за неё — <strong class="danger-text">бан навсегда</strong>.</p>
+                            <p><strong>7.2.</strong> Если вы не согласны с наказанием — пишите в Discord или специальный отдел в Telegram.</p>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <button class="accordion-header" onclick="toggleAccordion(this)">8️⃣ Дополнительно <span>+</span></button>
+                        <div class="accordion-body">
+                            <p><strong>8.1.</strong> Использование сторонних модов (кроме косметических и оптимизирующих) — на ваш страх и риск. Любое использование модов для получения нечестного преимущества (включая Freecam) приравнивается к читерству.</p>
+                            <p><strong>8.2.</strong> Администрация не обязана возвращать вещи, потерянные в результате игрового процесса, очистки дропа или смерти.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+        <!-- ВКЛАДКА 3: ССЫЛКИ -->
+        <div id="links-page" class="tab-content">
+            <section class="glass-panel full-width-card center-text">
+                <h2>🔗 Присоединяйся к VanillaGarma</h2>
+                <p class="subtitle">Будь в курсе всех ивентов, подавай заявку в бота и общайся с игроками!</p>
+                <div class="links-grid">
+                    <a href="https://t.me/VanillaGarmaAut_bot" target="_blank" class="link-card telegram-color">
+                        <h3>Telegram Бот (Заявки)</h3>
+                        <p>Подай анкету за пару минут и автоматически получи доступ к белому списку сервера.</p>
+                    </a>
+                    <a href="https://discord.gg/m46VAyvwW" target="_blank" class="link-card discord-color">
+                        <h3>Discord сервер</h3>
+                        <p>Голосовые каналы, кланы, тикеты поддержки и общение с игроками.</p>
+                    </a>
+                    <a href="https://t.me/VanillaGarma" target="_blank" class="link-card telegram-color">
+                        <h3>Telegram канал</h3>
+                        <p>Важные новости, технические работы, конкурсы и свежие спойлеры обновлений.</p>
+                    </a>
+                </div>
+            </section>
+        </div>
+
+        <!-- ВКЛАДКА 4: ОТЫГРЫШ (RP) -->
+        <div id="wiki-page" class="tab-content">
+            <section class="glass-panel full-width-card">
+                <h2>🎭 Элементы Ролевой Игры (RP)</h2>
+                <p class="subtitle">У нас приветствуется создание собственных государств и свободная политика!</p>
+                <div class="wiki-grid">
+                    <div class="wiki-item">
+                        <h3>🏛️ Города и Нации</h3>
+                        <p>Объединяйся с другими игроками, строй уникальные поселения, создавай законы внутри своего города и веди торговлю с соседями.</p>
+                    </div>
+                    <div class="wiki-item">
+                        <h3>⚖️ Игровой Суд</h3>
+                        <p>Все спорные моменты, которые не нарушают правила сервера напрямую (например, невыполнение условий сделки), решаются игроками в суде на спавне.</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Проект VanillaGarma. Работает на GitHub Pages.</p>
+    </footer>
+
+    <!-- Скрипты для работы сайта -->
+    <script>
+        function openTab(evt, tabName) {
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("tab-content");
+            for (i = 0; i < tabcontent.length; i++) {
+                tabcontent[i].classList.remove("active-content");
+            }
+            tablinks = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tablinks.length; i++) {
+                tablinks[i].classList.remove("active");
+            }
+            document.getElementById(tabName).classList.add("active-content");
+            evt.currentTarget.classList.add("active");
+        }
+
+        function toggleAccordion(element) {
+            element.classList.toggle("active");
+            var body = element.nextElementSibling;
+            var span = element.querySelector("span");
+            
+            if (body.style.maxHeight) {
+                body.style.maxHeight = null;
+                body.style.padding = "0 20px";
+                span.innerText = "+";
+            } else {
+                body.style.maxHeight = body.scrollHeight + "px";
+                body.style.padding = "15px 20px";
+                span.innerText = "−";
+            }
+        }
+    </script>
+</body>
+</html>

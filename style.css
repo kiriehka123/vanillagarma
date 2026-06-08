@@ -1,0 +1,258 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+    background-color: #120914;
+}
+
+/* Настройки видео-фона */
+#bg-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+    object-fit: cover;
+    filter: brightness(40%) contrast(105%);
+}
+
+/* Стекло */
+.glass-panel {
+    background: rgba(22, 11, 16, 0.4);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 182, 193, 0.15);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px 0 rgba(0, 0, 0, 0.5);
+}
+
+/* Шапка сайта */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 25px auto;
+    padding: 15px 40px;
+    width: 90%;
+    max-width: 1200px;
+    box-sizing: border-box;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    color: #ffb6c1;
+    text-shadow: 0 0 15px rgba(255, 182, 193, 0.5);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Вкладки навигации */
+.tabs-nav {
+    display: flex;
+    gap: 8px;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: #d8d8d8;
+    padding: 10px 22px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    color: #ffb6c1;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.tab-btn.active {
+    color: #ffffff;
+    background: linear-gradient(135deg, #ff69b4, #ffb6c1);
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+}
+
+/* Контент */
+.content-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto auto auto;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active-content {
+    display: block;
+    animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Главная страница */
+.hero-layout {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.info-card { flex: 1.3; padding: 40px; min-width: 320px; }
+.mechanics-card { flex: 1; padding: 40px; min-width: 320px; }
+.full-width-card { width: 100%; padding: 40px; box-sizing: border-box; }
+
+h1 {
+    font-size: 3.2rem;
+    margin: 0 0 10px 0;
+    font-weight: 800;
+    background: linear-gradient(45deg, #ffffff, #ffb6c1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+h2 { color: #ffb6c1; margin-top: 0; font-size: 1.8rem; }
+.subtitle { color: #c8bccd; font-size: 1.05rem; margin-bottom: 30px; line-height: 1.5; }
+
+/* Статус онлайна */
+.server-status { display: flex; align-items: center; gap: 12px; margin-bottom: 30px; }
+.status-indicator {
+    width: 12px; height: 12px; background-color: #00ff88; border-radius: 50%;
+    box-shadow: 0 0 10px #00ff88; animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(0, 255, 136, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
+}
+
+.server-status p { margin: 0; font-weight: 600; }
+
+/* IP Блок */
+.ip-block p { margin: 0 0 8px 0; color: #a295a6; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
+.ip-address {
+    display: inline-block; background: rgba(0, 0, 0, 0.4); padding: 12px 25px;
+    border-radius: 10px; font-family: monospace; font-size: 1.3rem; color: #ffb6c1;
+    border: 1px solid rgba(255, 182, 193, 0.3); font-weight: bold;
+}
+
+.mechanic-item { margin-bottom: 25px; }
+.mechanic-item h3 { margin: 0 0 5px 0; font-size: 1.15rem; }
+.mechanic-item p { margin: 0; color: #b8abbc; font-size: 0.95rem; line-height: 1.5; }
+
+/* Правила (Аккордеон) */
+.rules-accordion { margin-top: 25px; display: flex; flex-direction: column; gap: 10px; }
+.accordion-item { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 182, 193, 0.08); border-radius: 12px; overflow: hidden; }
+.accordion-header {
+    background: transparent; border: none; width: 100%; text-align: left; padding: 16px 20px;
+    font-family: 'Montserrat', sans-serif; font-size: 1.05rem; font-weight: 600; color: #ffffff;
+    cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+}
+.accordion-header:hover { background: rgba(255, 182, 193, 0.06); color: #ffb6c1; }
+.accordion-header span { font-size: 1.2rem; color: #ffb6c1; }
+.accordion-body { max-height: 0; overflow: hidden; padding: 0 20px; background: rgba(0, 0, 0, 0.15); transition: max-height 0.3s ease-out, padding 0.3s ease-out; }
+.accordion-body p { margin: 12px 0; font-size: 0.95rem; line-height: 1.6; color: #d5cbd6; }
+.danger-text { color: #ff4f4f; text-shadow: 0 0 10px rgba(255, 79, 79, 0.2); }
+.accordion-body em { color: #ffb6c1; font-style: normal; }
+
+/* Вкладка ссылок */
+.links-grid { display: flex; gap: 20px; margin-top: 30px; flex-wrap: wrap; }
+.link-card {
+    flex: 1; min-width: 260px; padding: 30px; border-radius: 16px; text-decoration: none; color: white;
+    background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.05); transition: transform 0.2s ease, background 0.3s ease;
+}
+.link-card:hover { transform: translateY(-4px); }
+.link-card p { color: #bcaebf; font-size: 0.9rem; margin: 5px 0 0 0; line-height: 1.4; }
+.discord-color:hover { background: rgba(88, 101, 242, 0.15); border-color: #5865F2; }
+.telegram-color:hover { background: rgba(0, 136, 204, 0.15); border-color: #0088cc; }
+.youtube-color:hover { background: rgba(255, 0, 0, 0.15); border-color: #ff0000; }
+.center-text { text-align: center; }
+
+/* Вкладка RP */
+.wiki-grid { display: flex; gap: 20px; margin-top: 25px; flex-wrap: wrap; }
+.wiki-item { flex: 1; min-width: 280px; background: rgba(0, 0, 0, 0.2); padding: 25px; border-radius: 14px; border: 1px solid rgba(255,255,255,0.02); }
+.wiki-item h3 { margin: 0 0 10px 0; color: #ffb6c1; }
+.wiki-item p { margin: 0; color: #c0b2c2; font-size: 0.95rem; line-height: 1.5; }
+
+/* === СТИЛИ ПРОКРУТКИ ВНИЗ === */
+.extended-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 10px;
+}
+
+/* Шаги */
+.steps-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.step-card {
+    flex: 1;
+    min-width: 250px;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 30px 25px;
+    border-radius: 15px;
+    position: relative;
+    border: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.step-num {
+    position: absolute;
+    top: -15px;
+    left: 25px;
+    background: linear-gradient(135deg, #ff69b4, #ffb6c1);
+    color: #fff;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.4);
+}
+
+.step-card h3 {
+    margin: 10px 0 10px 0;
+    font-size: 1.2rem;
+    color: #ffb6c1;
+}
+
+.step-card p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #bcaebf;
+    line-height: 1.5;
+}
+
+/* Подвал */
+footer { text-align: center; padding: 35px; color: #5a4f5e; font-size: 0.85rem; margin-top: auto; }
+
+@media (max-width: 768px) {
+    header { flex-direction: column; gap: 15px; padding: 20px; }
+    .tabs-nav { flex-wrap: wrap; justify-content: center; }
+    h1 { font-size: 2.3rem; }
+}
