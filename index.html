@@ -1,205 +1,195 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CosmicGarma | Самый атмосферный сервер</title> <!-- Изменил тайтл -->
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SpaceCraft — Донат</title>
+<style>
+  :root{
+    --bg:#0a0e1f; --bg2:#0e1330; --card:#131a3a; --accent:#7c5cff; --accent2:#4fd1ff;
+    --text:#eef0ff; --muted:#8a90b8;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; font-family:'Segoe UI', Roboto, Arial, sans-serif;
+    background:var(--bg); color:var(--text);
+    background-image:
+      radial-gradient(2px 2px at 20px 30px, #fff, transparent),
+      radial-gradient(2px 2px at 140px 90px, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 300px 40px, #cfd4ff, transparent),
+      radial-gradient(1.5px 1.5px at 420px 120px, #fff, transparent),
+      radial-gradient(2px 2px at 550px 60px, #cfd4ff, transparent),
+      radial-gradient(1.5px 1.5px at 700px 150px, #fff, transparent),
+      radial-gradient(2px 2px at 90px 220px, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 250px 280px, #cfd4ff, transparent),
+      radial-gradient(1.5px 1.5px at 480px 260px, #fff, transparent);
+    background-repeat:repeat; background-size:750px 350px;
+  }
+
+  header{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:16px 40px; background:rgba(14,19,48,0.7); backdrop-filter:blur(6px);
+  }
+  .logo{font-weight:bold; font-size:1.3em; letter-spacing:1px; color:var(--accent2);}
+  nav a{color:var(--muted); text-decoration:none; margin:0 16px; font-size:.95em;}
+  .cart-btn{
+    background:linear-gradient(90deg,var(--accent),var(--accent2)); border:none;
+    color:#fff; font-weight:bold; padding:10px 18px; border-radius:10px; cursor:pointer;
+  }
+
+  .hero{
+    text-align:center; padding:90px 20px 60px;
+  }
+  .hero h1{
+    font-size:3em; margin:0; letter-spacing:2px;
+    background:linear-gradient(90deg,var(--accent2),var(--accent));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero p{color:var(--muted); max-width:500px; margin:14px auto 0;}
+  .online{color:var(--muted); margin-top:18px; font-size:.9em;}
+  .online span{color:#4ade80;}
+
+  .shop-title{max-width:900px; margin:0 auto 20px; padding:0 20px;}
+  .shop-title h2{border-bottom:2px solid var(--accent); display:inline-block; padding-bottom:6px;}
+
+  .grid{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:18px; max-width:900px; margin:0 auto 50px; padding:0 20px;
+  }
+  .item{
+    background:var(--card); border-radius:14px; padding:20px; text-align:center;
+    border:1px solid rgba(124,92,255,0.25);
+  }
+  .item h3{margin:6px 0;}
+  .item .price{color:var(--accent2); font-weight:bold; font-size:1.15em; margin-bottom:12px;}
+  .item button{
+    background:linear-gradient(90deg,var(--accent),var(--accent2)); border:none; color:#fff;
+    font-weight:bold; padding:10px 16px; border-radius:8px; cursor:pointer; width:100%;
+  }
+  .item button:hover{opacity:0.9;}
+
+  .cart{
+    max-width:480px; margin:0 auto 60px; background:var(--card); border-radius:14px;
+    padding:22px; border:1px solid rgba(124,92,255,0.25);
+  }
+  .cart h2{margin-top:0;}
+  .cart-row{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:8px 0; border-bottom:1px solid rgba(255,255,255,0.08);
+  }
+  .cart-row button{background:none; border:none; color:#ff6b6b; cursor:pointer; font-size:1em;}
+  .total{display:flex; justify-content:space-between; font-weight:bold; margin-top:12px; font-size:1.2em;}
+  input[type=text]{
+    width:100%; padding:10px; margin-top:16px; border-radius:8px;
+    border:1px solid rgba(124,92,255,0.4); background:#0d1230; color:var(--text);
+  }
+  .checkout{
+    width:100%; margin-top:16px; padding:14px; border:none; border-radius:8px;
+    font-weight:bold; font-size:1.05em; cursor:pointer; color:#fff;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+  }
+  .checkout:disabled{opacity:0.35; cursor:not-allowed;}
+  .empty{color:var(--muted); text-align:center; padding:16px 0;}
+</style>
 </head>
 <body>
 
-    <!-- Живой фон (теперь космос) -->
-    <video autoplay muted loop id="bg-video">
-        <!-- ВАЖНО: замените 'space.mp4' на путь к вашему видео космоса -->
-        <source src="space.mp4" type="video/mp4">
-    </video>
+<header>
+  <div class="logo">✦ SPACECRAFT</div>
+  <nav>
+    <a href="#">Онлайн карта</a>
+    <a href="#">Вики сервера</a>
+    <a href="#">Помощь</a>
+  </nav>
+  <button class="cart-btn">🛒 0.00 ₽</button>
+</header>
 
-    <!-- Шапка с логотипом и вкладками -->
-    <header class="glass-panel">
-        <div class="logo">
-            <!-- Иконка изменена с цветка на ракету -->
-            <span class="icon">🚀</span> COSMICGARMA
+<div class="hero">
+  <h1>SPACECRAFT</h1>
+  <p>Тестовая страница доната в космической теме — просто пример оформления.</p>
+  <div class="online">Онлайн на сервере: <span>37 из 150</span></div>
+</div>
+
+<div class="shop-title"><h2>Наши товары</h2></div>
+
+<div class="grid" id="shop"></div>
+
+<div class="cart">
+  <h2>Корзина</h2>
+  <div id="cartItems"><p class="empty">Корзина пуста</p></div>
+  <div class="total"><span>Итого:</span><span id="totalPrice">0 ₽</span></div>
+  <input type="text" id="nickname" placeholder="Твой ник на сервере">
+  <button class="checkout" id="checkoutBtn" disabled>Оформить донат</button>
+</div>
+
+<script>
+  // ====== НАСТРОЙКИ — ЗАМЕНИ НА СВОИ ======
+  const DONATIONALERTS_USERNAME = "твой_ник_на_da";
+  const products = [
+    { id: 1, name: "Звёздный VIP", price: 199 },
+    { id: 2, name: "Набор астероидов", price: 49 },
+  ];
+  // ==========================================
+
+  let cart = [];
+
+  function renderShop(){
+    document.getElementById('shop').innerHTML = products.map(p => `
+      <div class="item">
+        <h3>${p.name}</h3>
+        <div class="price">${p.price} ₽</div>
+        <button onclick="addToCart(${p.id})">В корзину</button>
+      </div>
+    `).join('');
+  }
+
+  function addToCart(id){
+    cart.push(products.find(p => p.id === id));
+    renderCart();
+  }
+
+  function removeFromCart(index){
+    cart.splice(index, 1);
+    renderCart();
+  }
+
+  function renderCart(){
+    const container = document.getElementById('cartItems');
+    const checkoutBtn = document.getElementById('checkoutBtn');
+
+    if(cart.length === 0){
+      container.innerHTML = '<p class="empty">Корзина пуста</p>';
+      checkoutBtn.disabled = true;
+    } else {
+      container.innerHTML = cart.map((item, i) => `
+        <div class="cart-row">
+          <span>${item.name} — ${item.price} ₽</span>
+          <button onclick="removeFromCart(${i})">✕</button>
         </div>
-        <nav class="tabs-nav">
-            <button class="tab-btn active" onclick="openTab(event, 'main-page')">Главная</button>
-            <button class="tab-btn" onclick="openTab(event, 'rules-page')">Правила</button>
-            <button class="tab-btn" onclick="openTab(event, 'links-page')">Ссылки</button>
-            <button class="tab-btn" onclick="openTab(event, 'wiki-page')">Отыгрыш (RP)</button>
-        </nav>
-    </header>
+      `).join('');
+      checkoutBtn.disabled = false;
+    }
 
-    <!-- Основной контент сайта -->
-    <main class="content-container">
+    const total = cart.reduce((sum, i) => sum + i.price, 0);
+    document.getElementById('totalPrice').textContent = total + ' ₽';
+  }
 
-        <!-- ВКЛАДКА 1: ГЛАВНАЯ -->
-        <div id="main-page" class="tab-content active-content">
-            <div class="hero-layout">
-                <section class="glass-panel info-card">
-                    <h1>COSMICGARMA</h1>
-                    <p class="subtitle">Выживание в открытом космосе. Исследуй галактику, строй орбитальные станции.</p>
-                    <div class="server-status">
-                        <span class="status-indicator"></span>
-                        <p>Онлайн: <strong>196 из 200</strong></p>
-                    </div>
-                    <div class="ip-block">
-                        <p>IP адрес для входа:</p>
-                        <div class="ip-address">play.cosmicgarma.online</div>
-                    </div>
-                </section>
+  document.getElementById('checkoutBtn').addEventListener('click', () => {
+    const nickname = document.getElementById('nickname').value.trim();
+    if(!nickname){ alert('Введи свой ник на сервере!'); return; }
 
-                <section class="glass-panel mechanics-card">
-                    <h2>Особенности проекта</h2>
-                    <div class="mechanic-item">
-                        <h3>🔒 Орбитальная защита</h3>
-                        <p>Полная защита ваших построек. Быстрая регистрация через нашего Telegram-бота.</p>
-                    </div>
-                    <div class="mechanic-item">
-                        <h3>🌌 Настоящий космос</h3>
-                        <p>Доступные версии игры: <strong>1.21.4 – 1.21.11</strong>. Уникальные механики, отзывчивая администрация.</p>
-                    </div>
-                </section>
-            </div>
+    const total = cart.reduce((sum, i) => sum + i.price, 0);
+    const itemsList = cart.map(i => i.name).join(', ');
+    const message = `Ник: ${nickname} | Товары: ${itemsList}`;
+    const url = `https://www.donationalerts.com/r/${DONATIONALERTS_USERNAME}` +
+      `?amount=${total}&message=${encodeURIComponent(message)}`;
 
-            <!-- БЛОК: С ЧЕГО НАЧАТЬ -->
-            <div class="extended-layout">
-                <section class="glass-panel full-width-card style-guide">
-                    <h2>🚀 Как начать игру?</h2>
-                    <p class="subtitle">Всего 3 простых шага отделяют тебя от старта.</p>
-                    
-                    <div class="steps-container">
-                        <div class="step-card">
-                            <div class="step-num">1</div>
-                            <h3>Подай заявку</h3>
-                            <p>Перейди в нашего официального <a href="#" target="_blank">Telegram-бота</a> и заполни анкету.</p>
-                        </div>
-                        <div class="step-card">
-                            <div class="step-num">2</div>
-                            <h3>Дождись одобрения</h3>
-                            <p>Администрация проверит заявку, и бот добавит тебя в вайтлист.</p>
-                        </div>
-                        <div class="step-card">
-                            <div class="step-num">3</div>
-                            <h3>Подключайся!</h3>
-                            <p>Копируй IP, запускай Minecraft <strong>1.21.4+</strong> и взлетаем!</p>
-                        </div>
-                    </div>
-                </section>
-            </div>
-        </div>
+    window.location.href = url;
+  });
 
-        <!-- ВКЛАДКА 2: ПРАВИЛА -->
-        <div id="rules-page" class="tab-content">
-            <section class="glass-panel full-width-card">
-                <h2>📜 Космический Кодекс</h2>
-                <p class="subtitle">Правила поведения на станции и за её пределами.</p>
+  renderShop();
+  renderCart();
+</script>
 
-                <div class="rules-accordion">
-                    
-                    <div class="accordion-item">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">1️⃣ Общие положения <span>+</span></button>
-                        <div class="accordion-body">
-                            <p><strong>1.1.</strong> Нахождение на сервере подразумевает автоматическое согласие с уставом.</p>
-                            <p><strong>1.2.</strong> Незнание законов галактики не освобождает от ответственности.</p>
-                            <p><strong>1.3.</strong> Администрация — закон в последней инстанции.</p>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">2️⃣ Безопасность станции <span>+</span></button>
-                        <div class="accordion-body">
-                            <p><strong>2.1.</strong> Запрещены вредоносные программы (читы, X-Ray).</p>
-                            <p><strong>2.2.</strong> Запрещено использование багов игры.</p>
-                            <p><strong>2.3.</strong> Запрещено создание лаг-машин.</p>
-                        </div>
-                    </div>
-                    <!-- Остальные пункты правил без изменений, классы сами подхватят стили -->
-                     <div class="accordion-item">
-                        <button class="accordion-header" onclick="toggleAccordion(this)">3️⃣ Общение в эфире <span>+</span></button>
-                        <div class="accordion-body">
-                            <p><strong>3.1.</strong> Запрещены оскорбления и разжигание конфликтов.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- ВКЛАДКА 3: ССЫЛКИ -->
-        <div id="links-page" class="tab-content">
-            <section class="glass-panel full-width-card center-text">
-                <h2>🔗 Космические каналы связи</h2>
-                <p class="subtitle">Подписывайся, чтобы не потеряться в космосе!</p>
-                <div class="links-grid">
-                    <a href="#" target="_blank" class="link-card telegram-color">
-                        <h3>Telegram Бот</h3>
-                        <p>Подача заявок на впуск в космический сектор.</p>
-                    </a>
-                    <a href="#" target="_blank" class="link-card discord-color">
-                        <h3>Discord Канал</h3>
-                        <p>Общий сбор экипажа, голосовая связь.</p>
-                    </a>
-                    <a href="#" target="_blank" class="link-color telegram-color"> <!-- Исправил класс link-color на link-card, чтобы стили применились -->
-                        <h3>Telegram Новости</h3>
-                        <p>Обновления станции, галактические новости.</p>
-                    </a>
-                </div>
-            </section>
-        </div>
-
-        <!-- ВКЛАДКА 4: ОТЫГРЫШ (RP) -->
-        <div id="wiki-page" class="tab-content">
-            <section class="glass-panel full-width-card">
-                <h2>🎭 Ролевая Игра (RP)</h2>
-                <p class="subtitle">Создавай свои колонии, устанавливай торговые пути.</p>
-                <div class="wiki-grid">
-                    <div class="wiki-item">
-                        <h3>🏛️ Фракции и Колонии</h3>
-                        <p>Объединяйтесь в корпорации, стройте купольные города.</p>
-                    </div>
-                    <div class="wiki-item">
-                        <h3>⚖️ Галактический Суд</h3>
-                        <p>Споры решаются Советом Фракций на орбитальной станции.</p>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-    </main>
-
-    <footer>
-        <p>&copy; 2026 Проект CosmicGarma. Все права защищены.</p>
-    </footer>
-
-    <script>
-        function openTab(evt, tabName) {
-            var i, tabcontent, tablinks;
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].classList.remove("active-content");
-            }
-            tablinks = document.getElementsByClassName("tab-btn");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].classList.remove("active");
-            }
-            document.getElementById(tabName).classList.add("active-content");
-            evt.currentTarget.classList.add("active");
-        }
-
-        function toggleAccordion(element) {
-            element.classList.toggle("active");
-            var body = element.nextElementSibling;
-            var span = element.querySelector("span");
-            
-            if (body.style.maxHeight) {
-                body.style.maxHeight = null;
-                body.style.padding = "0 20px";
-                span.innerText = "+";
-            } else {
-                body.style.maxHeight = body.scrollHeight + "px";
-                body.style.padding = "15px 20px";
-                span.innerText = "−";
-            }
-        }
-    </script>
 </body>
 </html>
